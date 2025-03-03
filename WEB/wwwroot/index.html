@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ControllerExample</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <h1>API Documentation</h1>
+    <a href="/swagger" target="_blank" class="button">Open Swagger in New Tab</a>
+
+    <div class="controller">
+        <h2>TeamController</h2>
+        
+        <div class="endpoint">
+            <strong>GET</strong> /api/v1/Team/teams
+            <button onclick="getAllOrders()">Fetch</button>
+            <pre id="orders-result"></pre>
+        </div>
+
+        <div class="endpoint">
+            <strong>POST</strong> /api/v1/Team/createTeam
+            <input type="text" id="order-name" placeholder="Order Name">
+            <select id="order-type-brigade">
+                <option value="1">ENGINEER</option>
+                <option value="2">GEOLOGIST</option>
+                <option value="3">TECHNOLOGIST</option>
+            </select>
+            <button onclick="createOrder()">Create</button>
+            <pre id="create-order-result"></pre>
+        </div>
+    </div>
+
+    <div class="controller">
+        <h2>AssignmentsController</h2>
+        
+        <div class="endpoint">
+            <strong>GET</strong> /api/v1/Assignments/createAssignment
+            <button onclick="getAllAssignments()">Fetch</button>
+            <pre id="assignments-result"></pre>
+        </div>
+
+        <div class="endpoint">
+            <strong>POST</strong> /api/assignments - Assign an order to a brigade
+            <input type="number" id="assignment-order-id" placeholder="Order ID">
+            <input type="number" id="assignment-brigade-id" placeholder="Brigade ID">
+            <input type="text" id="assignment-description" placeholder="Description">
+            <input type="date" id="assignment-completion-date" placeholder="Completion Date">
+            <select id="assignment-status">
+                <option value="1">Pending</option>
+                <option value="2">In Progress</option>
+                <option value="3">Completed</option>
+            </select>
+            <textarea id="assignment-notes" placeholder="Notes"></textarea>
+            <button onclick="assignOrderToBrigade()">Assign</button>
+            <pre id="assign-order-result"></pre>
+        </div>
+    </div>
+
+    <div class="controller">
+        <h2>RequestController</h2>
+        
+        <div class="endpoint">
+            <strong>GET</strong> /api/v1/Request/createRequest
+            <button onclick="getAllReports()">Fetch</button>
+            <pre id="reports-result"></pre>
+        </div>
+
+        <div class="endpoint">
+            <strong>POST</strong> /api/v1/Request/requests
+            <input type="number" id="report-assignment-id" placeholder="Assignment ID">
+            <textarea id="report-notes" placeholder="Notes"></textarea>
+            <input type="text" id="report-description" placeholder="Description">
+            <button onclick="createReport()">Create</button>
+            <pre id="create-report-result"></pre>
+        </div>
+    </div>
+
+    <div class="controller">
+        <h2>StatisticsController</h2>
+        
+        <div class="endpoint">
+            <strong>GET</strong> /api/v1/Statistics/statistic?start=${startDate}&end=${endDate}
+            <input type="date" id="statistics-start-date" placeholder="Start Date">
+            <input type="date" id="statistics-end-date" placeholder="End Date">
+            <button onclick="getMonthlyStatistics()">Fetch</button>
+            <pre id="statistics-result"></pre>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
